@@ -1,0 +1,29 @@
+.bg {
+    background-image: url('./images/coal.png') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+.loading-items {
+    margin-bottom: 3em !important;
+    margin-top: 3em !important;
+}
+
+.item-price {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.item-name {
+    text-transform: uppercase;
+    min-height: 3em;
+}
+
+.card {
+    min-height: 200px !important;
+}

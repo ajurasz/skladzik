@@ -1,0 +1,1 @@
+Simple homepage for my parents local business.
