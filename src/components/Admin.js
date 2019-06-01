@@ -3,9 +3,10 @@ import React, {useEffect} from 'react';
 import {useStateValue} from '../context';
 import {dbRef} from '../fire';
 import Coals from './coals/Coals';
+import Form from './coals/Form';
 
 const Admin = () => {
-    const [, dispatch] = useStateValue();
+    const [{coalForm}, dispatch] = useStateValue();
 
     useEffect(() => {
         dispatch({
@@ -29,6 +30,7 @@ const Admin = () => {
 
     return (
         <React.Fragment>
+            {coalForm && <Form/>}
             <Coals/>
         </React.Fragment>
     );

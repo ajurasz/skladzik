@@ -1,5 +1,6 @@
 export const initialState = {
     user: undefined,
+    coalForm: undefined,
     coals: {
         loading: false,
         data: []
@@ -28,6 +29,16 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 user: action.user
+            };
+        case 'OPEN_COAL_FORM':
+            return {
+                ...state,
+                coalForm: action.data
+            };
+        case 'CLOSE_COAL_FORM':
+            return {
+                ...state,
+                coalForm: undefined
             };
         default:
             return state;
