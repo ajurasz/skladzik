@@ -1,5 +1,5 @@
 export const initialState = {
-    user: undefined,
+    isAuthenticated: false,
     coalForm: undefined,
     coals: {
         loading: false,
@@ -9,6 +9,11 @@ export const initialState = {
 
 export const reducer = (state, action) => {
     switch (action.type) {
+        case 'LOGGED_IN':
+            return {
+                ...state,
+                isAuthenticated: true
+            };
         case 'LOAD_COALS':
             return {
                 ...state,

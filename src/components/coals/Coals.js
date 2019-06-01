@@ -5,7 +5,7 @@ import {useStateValue} from '../../context';
 import Coal from './Coal';
 
 const Coals = () => {
-    const [{coals, user}] = useStateValue();
+    const [{coals, isAuthenticated}] = useStateValue();
     return (
         <React.Fragment>
             {coals.loading ? (
@@ -15,7 +15,7 @@ const Coals = () => {
                     <Grid.Row>
                         {coals.data.map((item) => (
                             <Grid.Column key={item.id} width={4} style={{marginBottom: '1em'}}>
-                                <Coal isEditable={user} {...item}/>
+                                <Coal isEditable={isAuthenticated} {...item}/>
                             </Grid.Column>
                         ))}
                     </Grid.Row>

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
 
 const config = {
@@ -15,6 +16,7 @@ const config = {
 firebase.initializeApp(config);
 
 const itemsRef = firebase.firestore().collection('items');
+const auth = firebase.auth();
 
 export const fetch = async (all = true) => {
     let snapshost;
@@ -35,5 +37,15 @@ export const update = async coal => {
         await itemsRef.add(rest);
     } else {
         await itemsRef.doc(id).update(rest);
+    }
+};
+
+export const login = async (email, password) => {
+    try {
+        await auth.signInWithEmailAndPassword(email, password);
+        return true;
+    } catch (e) {
+        console.log(e.message);
+        return false;
     }
 };
