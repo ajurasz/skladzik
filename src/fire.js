@@ -28,3 +28,12 @@ export const fetch = async (all = true) => {
         ...doc.data()
     }));
 };
+
+export const update = async coal => {
+    const { id, ...rest} = coal;
+    if (id === undefined) {
+        await itemsRef.add(rest);
+    } else {
+        await itemsRef.doc(id).update(rest);
+    }
+};

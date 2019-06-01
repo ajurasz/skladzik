@@ -3,7 +3,8 @@ import React, {useEffect} from 'react';
 import {useStateValue} from '../context';
 import {fetch} from '../fire';
 import Coals from './coals/Coals';
-import Form from './coals/Form';
+import CoalForm from './coals/CoalForm';
+import CoalAdd from './coals/CoalAdd';
 
 const Admin = () => {
     const [{coalForm}, dispatch] = useStateValue();
@@ -27,7 +28,8 @@ const Admin = () => {
 
     return (
         <React.Fragment>
-            {coalForm && <Form/>}
+            {coalForm && <CoalForm/>}
+            <CoalAdd/>
             <Coals/>
         </React.Fragment>
     );

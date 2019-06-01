@@ -40,6 +40,15 @@ export const reducer = (state, action) => {
                 ...state,
                 coalForm: undefined
             };
+        case 'UPDATE_COAL_FORM': {
+            return {
+                ...state,
+                coalForm: {
+                    ...state.coalForm,
+                    ...action.data
+                }
+            }
+        }
         default:
             return state;
     }
