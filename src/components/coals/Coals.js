@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Grid, Loader} from 'semantic-ui-react';
 
 import {dbRef} from '../../fire';
-import Item from './Item';
+import Coal from './Coal';
 
-class ItemsList extends Component {
+class Coals extends Component {
     state = {
         loading: true,
         items: []
@@ -30,7 +30,7 @@ class ItemsList extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {this.state.loading ? (
                     <Loader active inline='centered' className='loading-items'/>
                 ) : (
@@ -38,15 +38,15 @@ class ItemsList extends Component {
                         <Grid.Row>
                             {this.state.items.map((item) => (
                                 <Grid.Column key={item.id} width={4} style={{marginBottom: '1em'}}>
-                                    <Item {...item}/>
+                                    <Coal {...item}/>
                                 </Grid.Column>
                             ))}
                         </Grid.Row>
                     </Grid>
                 )}
-            </div>
+            </React.Fragment>
         );
     }
 }
 
-export default ItemsList;
+export default Coals;

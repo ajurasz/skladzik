@@ -1,11 +1,16 @@
 import React from 'react';
-import {Card, Divider} from 'semantic-ui-react';
+import {Card, Divider, Icon, Popup} from 'semantic-ui-react';
 
-const Item = ({name, price, mine}) => (
+const Coal = ({name, price, mine}) => (
     <Card fluid={true}>
         <Card.Content textAlign='center'>
             <Card.Header className='item-name'>
                 <div className=''>{name}</div>
+                <Popup
+                    trigger={<Icon name='edit'/>}
+                    content='Edytuj'
+                    position='top center'
+                />
             </Card.Header>
             <Divider/>
             <Card.Description className='item-price'>
@@ -18,4 +23,4 @@ const Item = ({name, price, mine}) => (
     </Card>
 );
 
-export default Item;
+export default Coal;

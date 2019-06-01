@@ -20,8 +20,13 @@
 }
 
 .item-name {
+    display: inline-flex !important;
     text-transform: uppercase;
     min-height: 3em;
+}
+
+.item-name > i {
+    margin-left: 0.5em;
 }
 
 .card {
