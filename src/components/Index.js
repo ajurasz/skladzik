@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 
 import {useStateValue} from '../context';
-import {dbRef} from '../fire';
+import {fetch} from '../fire';
 import Coals from './coals/Coals';
 import Notice from './notice/Notice';
 
@@ -12,16 +12,13 @@ const Index = () => {
         dispatch({
             type: 'LOAD_COALS'
         });
-        dbRef.where('show', '==', true).onSnapshot((snapshot) => {
-            const data = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }));
+        async function fetchData() {
             dispatch({
                 type: 'LOADED_COALS',
-                data
+                data: await fetch(false)
             });
-        });
+        }
+        fetchData();
     }, [dispatch]);
 
     return (

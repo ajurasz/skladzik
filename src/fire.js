@@ -14,4 +14,17 @@ const config = {
 
 firebase.initializeApp(config);
 
-export const dbRef = firebase.firestore().collection('items');
+const itemsRef = firebase.firestore().collection('items');
+
+export const fetch = async (all = true) => {
+    let snapshost;
+    if (all) {
+        snapshost = await itemsRef.get();
+    } else {
+        snapshost = await itemsRef.where('show', '==', true).get();
+    }
+    return snapshost.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+};

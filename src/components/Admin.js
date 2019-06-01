@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 
 import {useStateValue} from '../context';
-import {dbRef} from '../fire';
+import {fetch} from '../fire';
 import Coals from './coals/Coals';
 import Form from './coals/Form';
 
@@ -16,16 +16,13 @@ const Admin = () => {
         dispatch({
             type: 'LOAD_COALS'
         });
-        dbRef.onSnapshot((snapshot) => {
-            const data = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }));
+        async function fetchData() {
             dispatch({
                 type: 'LOADED_COALS',
-                data
+                data: await fetch()
             });
-        });
+        }
+        fetchData();
     }, [dispatch]);
 
     return (
