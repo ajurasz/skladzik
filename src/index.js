@@ -12,7 +12,7 @@ ReactDOM.render(
         <App/>
     </StateProvider>, document.getElementById('root'));
 
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.NODE_ENV === 'production') {
     ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
     ReactGA.pageview(window.location.pathname);
 }
